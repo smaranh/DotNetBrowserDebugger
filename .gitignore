@@ -1,0 +1,7 @@
+.vs/
+packages/
+DotNetBrowserDebugger/bin/
+DotNetBrowserDebugger/obj/
+dotnetbrowser.license
+binaries/
+cache/
