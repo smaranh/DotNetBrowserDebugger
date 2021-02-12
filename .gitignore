@@ -5,3 +5,5 @@ DotNetBrowserDebugger/obj/
 dotnetbrowser.license
 binaries/
 cache/
+debugbinaries/
+debugcache/

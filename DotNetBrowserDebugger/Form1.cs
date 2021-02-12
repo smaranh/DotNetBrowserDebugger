@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using DotNetBrowser.Engine;
 using DotNetBrowser.Browser;
+using DotNetBrowserDebugger;
 
 namespace ESRI.ArcGIS.Mapping.OfficeIntegration.Core
 {
@@ -18,7 +19,10 @@ namespace ESRI.ArcGIS.Mapping.OfficeIntegration.Core
             {
                 browser = t.Result;
                 browserView1.InitializeFrom(browser);
-                browser.Navigation.LoadUrl("http://localhost:4500");
+                //browser.Navigation.LoadUrl("http://localhost:9222");
+                //browser.Navigation.LoadUrl("https://harihars.esri.com:4000");
+                browser.Navigation.LoadUrl("https://gmail.com");
+                //browser.Navigation.LoadUrl("https://hydra.esri.com/portal");
             }, TaskScheduler.FromCurrentSynchronizationContext());
             InitializeComponent();
         }
@@ -29,6 +33,7 @@ namespace ESRI.ArcGIS.Mapping.OfficeIntegration.Core
             {
                 RenderingMode = RenderingMode.HardwareAccelerated,
                 ChromiumDirectory = @"C:\DEV\testing\dotnetbrowser\DotNetBrowserDebugger\binaries",
+                RemoteDebuggingPort = 8000,
                 UserDataDirectory = userdatadir
             }
             .Build());
@@ -39,6 +44,12 @@ namespace ESRI.ArcGIS.Mapping.OfficeIntegration.Core
         {
             Engine?.Dispose();
             browser?.Dispose();
+        }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            Form formD = new debug();
+            formD.Show();
         }
     }
 }
